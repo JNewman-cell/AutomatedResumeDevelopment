@@ -30,7 +30,7 @@ jobs:
         mkdir -p resume_images
         for pdf_file in resume_pdfs/*.pdf; do
           base_name=$(basename "$pdf_file" .pdf)
-          pdftoppm -png -f 1 -singlefile "$pdf_file" "resume_images/${base_name}.png"
+          pdftoppm -png -f 1 -singlefile "$pdf_file" "resume_images/${base_name}"
         done
 
     - name: Commit PDFs and PNG images
