@@ -13,10 +13,7 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Build LaTeX documents
-      uses: actions/setup-docker@v1
-
-    - name: Run LaTeX build
+    - name: Compile LaTeX documents
       run: |
         docker run --rm -v ${{ github.workspace }}:/workspace -w /workspace danteev/texlive latexmk -pdf -interaction=nonstopmode -file-line-error resume.tex
 
