@@ -1,7 +1,7 @@
 name: Overleaf Backend Resume Sync
 on:
   schedule:
-    - cron: "0/5 * * * *"
+    - cron: "*/5 * * * *"
   # push:
   workflow_dispatch:
       
