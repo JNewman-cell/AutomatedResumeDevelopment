@@ -1,0 +1,55 @@
+name: Overleaf Backend Resume Sync
+on:
+  schedule:
+    - cron: "0/5 * * * *"
+  # push:
+  # workflow_dispatch:
+      
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Delete Old Artifacts
+      uses: actions/github-script@v6
+      id: artifact
+      with:
+        script: |
+          const res = await github.rest.actions.listArtifactsForRepo({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+          })
+
+          res.data.artifacts
+            .forEach(({ id }) => {
+              github.rest.actions.deleteArtifact({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                artifact_id: id,
+              })
+            })
+
+    - name: Fetch the latest version from overleaf server
+      uses: subhamx/overleaf_sync_with_git@master
+      with:
+        OVERLEAF_PROJECT_ID: ${{ secrets.OVERLEAF_BACK_PROJECT_ID }}
+        OVERLEAF_COOKIE: ${{ secrets.OVERLEAF_COOKIE }}
+
+    - name: Upload to Project Artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: project
+        path: ./artifacts/
+
+    - uses: actions/checkout@v2
+      with:
+        path: repo/
+    
+    - run: |
+        cd repo/
+        mkdir -p resume_latexs
+        cp -r ../artifacts/* ./resume_latexs
+        git config user.name "Overleaf Sync Bot"
+        git config user.email "actions@github.com"
+        git add .
+        if [[ $(git diff HEAD --stat) == '' ]]; then (echo 'Working tree is clean') 
+        else (git commit -m "Synced Backend Resume with overleaf remote"  && git push) fi
