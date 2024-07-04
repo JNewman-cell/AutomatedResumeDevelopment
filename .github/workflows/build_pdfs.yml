@@ -14,14 +14,8 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Set up TeX Live
-      run: sudo apt-get update && sudo apt-get install -y \
-            texlive-latex-base \
-            texlive-latex-extra \
-            texlive-fonts-recommended \
-            texlive-fonts-extra \
-            texlive-lang-english \
-            texlive-binaries \
-            latexmk
+      run: |
+        sudo apt-get update && sudo apt-get install -y texlive-full latexmk
 
     - name: Compile LaTeX documents
       run: |
