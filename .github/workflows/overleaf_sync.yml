@@ -1,0 +1,24 @@
+name: Overleaf Sync
+
+on:
+  push:
+    branches:
+      - main  # Adjust this to your default branch name
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Pull changes from Overleaf
+        run: |
+          git remote add overleaf 
+          git pull overleaf master
+
+      - name: Push changes to GitHub
+        run: |
+          git remote add github 
+          git push github master
