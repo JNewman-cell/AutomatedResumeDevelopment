@@ -4,7 +4,7 @@
 
 ## Backend Resume
 
-![Resume 2](resume_images/dJackson_Newman_Resume_Back.png.png)
+![Resume 2](resume_images/Jackson_Newman_Resume_Back.png.png)
 
 ## AI Resume
 
