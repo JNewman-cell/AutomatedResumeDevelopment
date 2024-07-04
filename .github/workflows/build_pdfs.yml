@@ -16,15 +16,19 @@ jobs:
     - name: Compile LaTeX documents
       run: |
         docker run --rm -v ${{ github.workspace }}:/workspace -w /workspace danteev/texlive bash -c "find . -name '*.tex' -exec latexmk -pdf -interaction=nonstopmode -file-line-error {} \;"
+    
+    - name: Move PDFs to resume_pdfs directory
+      run: |
+        mkdir -p resume_pdfs
+        find . -name '*.pdf' -exec mv {} resume_pdfs/ \;
 
     - name: Commit PDFs
-      id: commit
       run: |
         git config --local user.email "action[bot]@github.com"
         git config --local user.name "github-actions[bot]"
-        find . -name '*.pdf' -exec git add {} \;
-        git commit -m "[bot] updated resume pdfs"
-        
+        git add resume_pdfs/*.pdf
+        git commit -m "[bot] updated resume pdfs" || echo "No changes to commit"
+
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
