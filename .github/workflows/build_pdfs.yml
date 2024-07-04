@@ -20,8 +20,15 @@ jobs:
       run: |
         docker run --rm -v ${{ github.workspace }}:/workspace -w /workspace danteev/texlive bash -c "find . -name '*.tex' -exec latexmk -pdf -interaction=nonstopmode -file-line-error {} \;"
 
-    - name: Upload PDFs
-      uses: actions/upload-artifact@v2
+    - name: Commit PDFs
+      id: commit
+      run: |
+        git config --local user.email "action[bot]@github.com"
+        git config --local user.name "github-actions[bot]"
+        find . -name '*.pdf' -exec git add {} \;
+        git commit -m "[bot] updated resume pdfs"
+        
+    - name: Push changes
+      uses: ad-m/github-push-action@master
       with:
-        name: latex-pdfs
-        path: '**/*.pdf'
+        github_token: ${{ secrets.GITHUB_TOKEN }}
