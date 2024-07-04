@@ -1,6 +1,6 @@
 ## Full Stack Resume
 
-![Resume 1](resume_images/Jackson_Newman_Resume_AI.png)
+![Resume 1](resume_images/Jackson_Newman_Resume_Full.png)
 
 ## Backend Resume
 
@@ -8,4 +8,4 @@
 
 ## AI Resume
 
-![Resume 2](resume_images/Jackson_Newman_Resume_Full.png)
+![Resume 3](resume_images/Jackson_Newman_Resume_AI.png)
