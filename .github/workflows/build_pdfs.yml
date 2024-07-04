@@ -1,0 +1,37 @@
+name: Build LaTeX PDFs
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up TeX Live
+      run: sudo apt-get update && sudo apt-get install -y \
+            texlive-latex-base \
+            texlive-latex-extra \
+            texlive-fonts-recommended \
+            texlive-fonts-extra \
+            texlive-lang-english \
+            texlive-binaries \
+            latexmk
+
+    - name: Compile LaTeX documents
+      run: |
+        find . -name "*.tex" -print0 | xargs -0 -I % sh -c 'latexmk -pdf -interaction=nonstopmode -file-line-error %'
+
+    - name: Upload PDFs
+      uses: actions/upload-artifact@v2
+      with:
+        name: latex-pdfs
+        path: '*.pdf'
