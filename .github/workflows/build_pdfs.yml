@@ -13,13 +13,12 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Set up TeX Live
-      run: |
-        sudo apt-get update && sudo apt-get install -y texlive-full latexmk
+    - name: Build LaTeX documents
+      uses: actions/setup-docker@v1
 
-    - name: Compile LaTeX documents
+    - name: Run LaTeX build
       run: |
-        find . -name "*.tex" -print0 | xargs -0 -I % sh -c 'latexmk -pdf -interaction=nonstopmode -file-line-error %'
+        docker run --rm -v ${{ github.workspace }}:/workspace -w /workspace danteev/texlive latexmk -pdf -interaction=nonstopmode -file-line-error resume.tex
 
     - name: Upload PDFs
       uses: actions/upload-artifact@v2
