@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
   build:
@@ -15,10 +18,10 @@ jobs:
 
     - name: Compile LaTeX documents
       run: |
-        docker run --rm -v ${{ github.workspace }}:/workspace -w /workspace danteev/texlive latexmk -pdf -interaction=nonstopmode -file-line-error resume.tex
+        docker run --rm -v ${{ github.workspace }}:/workspace -w /workspace danteev/texlive bash -c "find . -name '*.tex' -exec latexmk -pdf -interaction=nonstopmode -file-line-error {} \;"
 
     - name: Upload PDFs
       uses: actions/upload-artifact@v2
       with:
         name: latex-pdfs
-        path: '*.pdf'
+        path: '**/*.pdf'
