@@ -25,7 +25,7 @@ jobs:
       run: |
         git config --local user.email "action[bot]@github.com"
         git config --local user.name "github-actions[bot]"
-        find . -name '*.pdf' -exec git add {} \;
+        find . -name 'resume_pdfs/*.pdf' -exec git add {} \;
         git commit -m "[bot] updated resume pdfs"
         
     - name: Push changes
