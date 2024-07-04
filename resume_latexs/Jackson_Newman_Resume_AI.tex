@@ -18,6 +18,7 @@
 \usepackage{fancyhdr}
 \usepackage[english]{babel}
 \usepackage{tabularx}
+\usepackage{amsmath}
 \input{glyphtounicode}
 
 
@@ -25,7 +26,7 @@
 % sans-serif
 % \usepackage[sfdefault]{FiraSans}
 % \usepackage[sfdefault]{roboto}
-% \usepackage[sfdefault]{noto-sans}
+\usepackage[sfdefault]{noto-sans}
 % \usepackage[default]{sourcesanspro}
 
 % serif
@@ -72,7 +73,7 @@
   \vspace{-2pt}\item
     \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
       \textbf{#1} & #2 \\
-      \textit{\small#3} & \textit{\small #4} \\
+      \text{#3} & #4 \\
     \end{tabular*}\vspace{-7pt}
 }
 
@@ -113,39 +114,26 @@
 
 \begin{center}
     \textbf{\Huge \scshape Jackson Newman} \\ \vspace{1pt}
-    \small 520 Sandlewood Lane, Redwood City, CA, 94065 $|$ 650-649-8204 $|$ \href{mailto:jpnewman167@gmail.com}{\underline{jpnewman167@gmail.com}} $|$ 
+    \small Redwood City, CA, 94065 $|$ 650-649-8204 $|$ \href{mailto:jpnewman167@gmail.com}{\underline{jpnewman167@gmail.com}} $|$ 
     \href{https://www.linkedin.com/in/jacknewman/}{\underline{linkedin.com/in/jacknewman}} $|$
     \href{https://github.com/JNewman-cell/}{\underline{https://github.com/JNewman-cell/}} $|$
     \href{https://jacksonnewman.netlify.app/}{\underline{jacksonnewman.netlify.app/}}
 \end{center}
 
 
-%-----------EDUCATION-----------
-\section{Education}
-  \resumeSubHeadingListStart
-    \resumeSubheading
-      {University of California, Santa Barbara}{Santa Barbara, CA}
-      {Bachelor of Science in Computer Science}{\textbf{09/2020 -- 06/2024}}
-    \resumeSubheading
-      {3.7 GPA, Dean's Honors, Relevant Coursework:}{}
-      {Data Structure, Algorithms, Machine Learning, Artificial Intelligence, Computer Architecture, Operating System}{}
-  \resumeSubHeadingListEnd
-
-
 %-----------EXPERIENCE-----------
-\section{Experience}
+\section{\textbf{Work Experience}}
   \resumeSubHeadingListStart
-
     \resumeSubheading
-      {Software Engineer Intern}{\textbf{06/2023 -- 09/2023}}
-      {AMD}{San Jose, CA}
-      \resumeItemListStart
-        \resumeItem{Boosted Vivado constraint processing speed 2x via Wildcard Matching and optimized preprocessing in C++.}
-        \resumeItem{Formulated unit tests covering 100\% of cases to test performance and validity of new constraint processing.}
-        \resumeItem{Trimmed memory footprint by 340MB by replacing hash maps with 3rd party package in C++.}
-        \resumeItem{Cut testing times by up to 80\% by automating testing for memory allocation and encryption performance.}
-        \resumeItem{Reduced project update time by 90\% by automating the process of changing encryption keys for IP.}
-      \resumeItemListEnd
+    {AMD}{\textbf{San Jose, CA}}
+    {Software Engineer Intern, Internal Development Tooling}{June 2023 - September 2023}
+    \resumeItemListStart
+        \resumeItem{Accelerated Vivado constraint processing by 50\% with a new C++ pattern matching function.}
+        \resumeItem{Developed unit tests achieving 100\% coverage to ensure performance and accuracy for Wildcard Matching.}
+        \resumeItem{Reduced Vivado memory usage by 2\% by refactoring code to utilize Tessil C++ Hash map package.}
+        \resumeItem{Decreased testing time by 80\% through automation of memory and encryption performance tests.}
+        \resumeItem{Cut Vivado project update time by 50\% by automating encryption key upgrades for custom IP.}
+    \resumeItemListEnd
       
 % -----------Multiple Positions Heading-----------
 %    \resumeSubSubheading
@@ -158,14 +146,13 @@
 %-------------------------------------------
 
     \resumeSubheading
-      {Full Stack Software Engineer Intern}{\textbf{06/2022 -- 09/2022}}
-      {Shellie.us}{San Francisco, CA}
-      \resumeItemListStart
-        \resumeItem{Expanded functionality of a React website that accommodated hundreds of active users and dozens of companies.}
-        \resumeItem{Designed a user hierarchy-based editing page for online exhibits, streamlining edits to webpages.}
-        \resumeItem{Eliminated all user web page inquiries and reduced time to launch new exhibit pages by 40\%.}
+    {Shellie.us}{\textbf{San Francisco, CA}}
+    {Full-Stack Software Engineer Intern, MERN Stack}{June 2022 - September 2022}
+    \resumeItemListStart
+        \resumeItem{Created an edit page for online exhibits, allowing 50+ admins to update marketing and authorized users.}
+        \resumeItem{Enhanced user experience, eliminating 100\% of 30+ monthly inquiries about exhibit updates.}
+        \resumeItem{Streamlined new exhibit page launches, reducing time by 60\% (from 5 days to 2 days).}
     \resumeItemListEnd
-
   \resumeSubHeadingListEnd
 
 
@@ -197,7 +184,16 @@
           \resumeItemListEnd
     \resumeSubHeadingListEnd
 
-
+%-----------EDUCATION-----------
+\section{\textbf{Education}}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {University of California, Santa Barbara}{\textbf{Santa Barbara, CA}}
+      {Bachelor of Science in Computer Engineering}{September 2020 - June 2024}
+    \resumeSubheading
+      {3.7 GPA, Dean's Honors, Relevant Coursework:}{}
+      {\small{Data Structures, Algorithms, Operating Systems, Applied Machine Learning and AI, Embedded Systems}}{}
+  \resumeSubHeadingListEnd
 
 %
 %-----------PROGRAMMING SKILLS-----------
