@@ -1,24 +1,55 @@
-name: Overleaf Sync
-
+name: Overleaf Sync with Git
 on:
+  schedule:
+    - cron: "0/5 * * * *"
   push:
-    branches:
-      - main  # Adjust this to your default branch name
-
+  workflow_dispatch:
+      
 jobs:
-  sync:
+  build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+    - name: Delete Old Artifacts
+      uses: actions/github-script@v6
+      id: artifact
+      with:
+        script: |
+          const res = await github.rest.actions.listArtifactsForRepo({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+          })
 
-      - name: Pull changes from Overleaf
-        run: |
-          git remote add overleaf 
-          git pull overleaf master
+          res.data.artifacts
+            .forEach(({ id }) => {
+              github.rest.actions.deleteArtifact({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                artifact_id: id,
+              })
+            })
 
-      - name: Push changes to GitHub
-        run: |
-          git remote add github 
-          git push github master
+    - name: Fetch the latest version from overleaf server
+      uses: subhamx/overleaf_sync_with_git@master
+      with:
+        OVERLEAF_PROJECT_ID: ${{ secrets.OVERLEAF_PROJECT_ID }}
+        OVERLEAF_COOKIE: ${{ secrets.OVERLEAF_COOKIE }}
+
+    - name: Upload to Project Artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: project
+        path: ./artifacts/
+
+    - uses: actions/checkout@v2
+      with:
+        path: repo/
+    
+    - run: |
+        cd repo/
+        mkdir -p overleaf_remote_src
+        cp -r ../artifacts/* ./overleaf_remote_src
+        git config user.name "Overleaf Sync Bot"
+        git config user.email "actions@github.com"
+        git add .
+        if [[ $(git diff HEAD --stat) == '' ]]; then (echo 'Working tree is clean') 
+        else (git commit -m "Sync with overleaf remote"  && git push) fi
