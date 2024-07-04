@@ -1,6 +1,6 @@
 ## Full Stack Resume
 
-![Resume 1](resume_images/document1.png)
+![Resume 1](resume_images/Jackson_Newman_Resume_AI.png.png)
 
 ## Backend Resume
 
