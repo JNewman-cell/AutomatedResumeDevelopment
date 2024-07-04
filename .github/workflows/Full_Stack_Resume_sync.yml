@@ -46,8 +46,8 @@ jobs:
     
     - run: |
         cd repo/
-        mkdir -p overleaf_remote_src
-        cp -r ../artifacts/* ./overleaf_remote_src
+        mkdir -p resume_latexs
+        cp -r ../artifacts/* ./resume_latexs
         git config user.name "Overleaf Sync Bot"
         git config user.email "actions@github.com"
         git add .
