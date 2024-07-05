@@ -19,9 +19,9 @@ jobs:
       run: |
         docker run --rm -v ${{ github.workspace }}:/workspace -w /workspace danteev/texlive bash -c "find . -name '*.tex' -exec latexmk -pdf -interaction=nonstopmode -file-line-error {} \;"
     
-    - name: Move PDFs to parent directory
-      run: |
-        find . -name '*.pdf' -exec mv {} ../ \;
+    # - name: Move PDFs to parent directory
+    #   run: |
+    #     find . -name '*.pdf' -exec mv {} ../ \;
 
     - name: Convert PDFs to PNG images
       run: |
