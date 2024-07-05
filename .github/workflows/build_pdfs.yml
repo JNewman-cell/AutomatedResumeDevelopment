@@ -26,7 +26,7 @@ jobs:
     - name: Convert PDFs to PNG images
       run: |
         mkdir -p resume_images
-        for pdf_file in ../*.pdf; do
+        for pdf_file in *.pdf; do
           base_name=$(basename "$pdf_file" .pdf)
           pdftoppm -png -f 1 -singlefile "$pdf_file" "resume_images/${base_name}"
         done
