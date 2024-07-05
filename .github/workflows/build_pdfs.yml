@@ -2,7 +2,6 @@ name: Build LaTeX PDFs
 on:
   schedule:
     - cron: "*/5 * * * *"
-  # push:
   workflow_dispatch:
 
 jobs:
@@ -20,15 +19,14 @@ jobs:
       run: |
         docker run --rm -v ${{ github.workspace }}:/workspace -w /workspace danteev/texlive bash -c "find . -name '*.tex' -exec latexmk -pdf -interaction=nonstopmode -file-line-error {} \;"
     
-    - name: Move PDFs to resume_pdfs directory
+    - name: Move PDFs to parent directory
       run: |
-        mkdir -p resume_pdfs
-        find . -name '*.pdf' -exec mv {} resume_pdfs/ \;
+        find . -name '*.pdf' -exec mv {} ../ \;
 
     - name: Convert PDFs to PNG images
       run: |
         mkdir -p resume_images
-        for pdf_file in resume_pdfs/*.pdf; do
+        for pdf_file in ../*.pdf; do
           base_name=$(basename "$pdf_file" .pdf)
           pdftoppm -png -f 1 -singlefile "$pdf_file" "resume_images/${base_name}"
         done
@@ -37,7 +35,7 @@ jobs:
       run: |
         git config --local user.email "action[bot]@github.com"
         git config --local user.name "github-actions[bot]"
-        git add resume_pdfs/*.pdf resume_images/*.png
+        git add ../*.pdf resume_images/*.png
         git commit -m "[bot] updated resume pdfs and images" || echo "No changes to commit"
 
     - name: Push changes
