@@ -1,7 +1,10 @@
 name: Build LaTeX PDFs
 on:
-  schedule:
-    - cron: "*/5 * * * *"
+  push:
+    branches:
+      - main
+    paths:
+      - '**/*.tex'
   workflow_dispatch:
 
 jobs:
