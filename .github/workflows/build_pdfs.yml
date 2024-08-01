@@ -1,6 +1,8 @@
 name: Build LaTeX PDFs
 on:
   push:
+    branches:
+      - main
     paths:
       - '*.tex'
   workflow_dispatch:
