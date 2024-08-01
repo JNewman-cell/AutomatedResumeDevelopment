@@ -1,9 +1,8 @@
 name: Build LaTeX PDFs
 on:
-  workflow_run:
-    workflows: ["Overleaf Full Stack Resume Sync", "Overleaf Backend Resume Sync","Overleaf AI Resume Sync"]
-    types:
-      - completed
+  push:
+    paths:
+      - '**/*.tex'
   workflow_dispatch:
 
 jobs:
