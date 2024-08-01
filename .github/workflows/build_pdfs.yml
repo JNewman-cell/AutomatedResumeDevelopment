@@ -9,6 +9,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    if: needs.previous-job.outputs.status == 'changes_detected'
 
     steps:
     - name: Checkout repository
