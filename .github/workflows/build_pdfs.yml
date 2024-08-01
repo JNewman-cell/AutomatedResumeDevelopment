@@ -4,7 +4,7 @@ on:
     branches:
       - main
     paths:
-      - 'resume_pdfs/**'
+      - 'resume_latexs/**'
   workflow_dispatch:
 
 jobs:
