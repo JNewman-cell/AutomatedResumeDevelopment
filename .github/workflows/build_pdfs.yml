@@ -4,7 +4,7 @@ on:
     branches:
       - main
     paths:
-      - '**/*.tex'
+      - '*.tex'
   workflow_dispatch:
 
 jobs:
