@@ -13,6 +13,12 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
+    - name: Install poppler-utils
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y poppler-utils
+
+
     - name: Compile LaTeX documents
       run: |
         docker run --rm -v ${{ github.workspace }}:/workspace -w /workspace danteev/texlive bash -c "find . -name '*.tex' -exec latexmk -pdf -interaction=nonstopmode -file-line-error {} \;"
