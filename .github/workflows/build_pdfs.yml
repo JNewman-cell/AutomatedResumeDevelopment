@@ -38,12 +38,11 @@ jobs:
         git commit -m "[bot] updated resume pdfs and images" || echo "No changes to commit"
 
     - name: Pull latest changes
-      id: pull
       run: |
         git pull --rebase origin main || git rebase --abort
 
-    - name: Push changes
-      if: steps.pull.outputs.exit-code == 0
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+    - name: Force push changes
+      run: |
+        git push --force
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
