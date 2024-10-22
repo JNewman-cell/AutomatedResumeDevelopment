@@ -1,4 +1,4 @@
-name: Overleaf Sync with Git
+name: Overleaf AI Resume Sync
 on:
   schedule:
     - cron: "0/5 * * * *"
@@ -31,7 +31,7 @@ jobs:
     - name: Fetch the latest version from overleaf server
       uses: subhamx/overleaf_sync_with_git@master
       with:
-        OVERLEAF_PROJECT_ID: ${{ secrets.OVERLEAF_PROJECT_ID }}
+        OVERLEAF_PROJECT_ID: ${{ secrets.OVERLEAF_AI_PROJECT_ID }}
         OVERLEAF_COOKIE: ${{ secrets.OVERLEAF_COOKIE }}
 
     - name: Upload to Project Artifacts
