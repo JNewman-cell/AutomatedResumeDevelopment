@@ -1,0 +1,229 @@
+%-------------------------
+% Resume in Latex
+% Author : Jake Gutierrez
+% Based off of: https://github.com/sb2nov/resume
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{amsmath}
+\input{glyphtounicode}
+
+
+%----------FONT OPTIONS----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+\usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
+
+% serif
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \text{#3} & #4 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING----------
+% \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+%   \textbf{\href{http://sourabhbajaj.com/}{\Large Sourabh Bajaj}} & Email : \href{mailto:sourabh@sourabhbajaj.com}{sourabh@sourabhbajaj.com}\\
+%   \href{http://sourabhbajaj.com/}{http://www.sourabhbajaj.com} & Mobile : +1-123-456-7890 \\
+% \end{tabular*}
+
+\begin{center}
+    \textbf{\Huge \scshape Jackson Newman} \\ \vspace{1pt}
+    \small Redwood City, CA, 94065 $|$ 650-649-8204 $|$ \href{mailto:jpnewman167@gmail.com}{\underline{jpnewman167@gmail.com}} $|$ 
+    \href{https://www.linkedin.com/in/jacknewman/}{\underline{linkedin.com/in/jacknewman}} $|$
+    \href{https://github.com/JNewman-cell/}{\underline{https://github.com/JNewman-cell/}} $|$
+    \href{https://jacksonnewman.netlify.app/}{\underline{jacksonnewman.netlify.app/}}
+\end{center}
+
+
+%-----------EXPERIENCE-----------
+\section{\textbf{Work Experience}}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+    {Majestic Labs AI}{\textbf{Los Altos, CA}}
+    {Software Engineer}{September 2024 - October 2024}
+    \resumeItemListStart
+        \resumeItem{Configured and deployed 5 AWS and GCP Linux VMs for AI model performance testing and benchmarking.}
+        \resumeItem{Benchmark-tested 10 AI models in production using inference engines like vLLM and TensorRT-LLM.}
+        \resumeItem{Improved Stable Diffusion performance with NNCF quantization, cutting image generation time by 80\%.}
+        \resumeItem{Deployed an end-to-end Flask web app with Nginx to showcase OpenAI-like LLM inference via HTTP.}
+        \resumeItem{Developed a Flask API server capable of handling hundreds of image generation requests.}
+        \resumeItem{Automated batch size testing for various LLMs using Llama.cpp, reducing data collection time by 30\%.}  
+    \resumeItemListEnd
+    \resumeSubheading
+    {AMD}{\textbf{San Jose, CA}}
+    {Software Engineer Intern, Internal Development Tooling}{June 2023 - September 2023}
+    \resumeItemListStart
+        \resumeItem{Accelerated Vivado constraint processing by 50\% with a new C++ pattern matching function.}
+        \resumeItem{Developed unit tests achieving 100\% coverage to ensure performance and accuracy for Wildcard Matching.}
+        \resumeItem{Reduced Vivado memory usage by 2\% by refactoring code to utilize Tessil C++ Hash map package.}
+        \resumeItem{Decreased testing time by 80\% through automation of memory and encryption performance tests.}
+        \resumeItem{Cut Vivado project update time by 50\% by automating encryption key upgrades for custom IP.}
+    \resumeItemListEnd
+      
+% -----------Multiple Positions Heading-----------
+%    \resumeSubSubheading
+%     {Software Engineer I}{Oct 2014 - Sep 2016}
+%     \resumeItemListStart
+%        \resumeItem{Apache Beam}
+%          {Apache Beam is a unified model for defining both batch and streaming data-parallel processing pipelines}
+%     \resumeItemListEnd
+%    \resumeSubHeadingListEnd
+%-------------------------------------------
+
+    \resumeSubheading
+    {Shellie.us}{\textbf{San Francisco, CA}}
+    {Full Stack Software Engineer Intern, MERN Stack}{June 2022 - September 2022}
+    \resumeItemListStart
+        \resumeItem{Created an edit page for online exhibits, allowing 50+ admins to update marketing and authorized users.}
+        \resumeItem{Enhanced user experience, eliminating 100\% of 30+ monthly inquiries about exhibit updates.}
+        \resumeItem{Streamlined new exhibit page launches, reducing time by 60\% (from 5 days to 2 days).}
+    \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+
+%-----------PROJECTS-----------
+\section{\textbf{Projects}}
+    \resumeSubHeadingListStart
+        \resumeProjectHeading
+          {\href{https://github.com/JNewman-cell/tinyGPT}{\underline{\textbf{TinyGPT}}} $|$ \emph{Python, PyTorch, Numpy, Self Attention, Transformers}}{}
+          \resumeItemListStart
+            \resumeItem{Implemented a cutting-edge language model using PyTorch, enabling the generation of text from input.}
+            \resumeItem{Utilized advanced NLP techniques inspired by GPT-2, including Transformers, for effective pattern capture.}
+            \resumeItem{Demonstrated expertise in training and optimization within the GPT-2 framework for text generation.}
+          \resumeItemListEnd
+        \resumeProjectHeading
+          {\href{https://github.com/JNewman-cell/AutoencoderClassfication}{\underline{\textbf{Autoencoder Visual Classification}}}
+          $|$ \emph{PyTorch, Numpy, Seaborn, Pandas, Matplotlib}}{}
+          \resumeItemListStart
+            \resumeItem{Trained autoencoder for precise letter recognition and transistor positioning on MNIST and MVTEC dataset.}
+            \resumeItem{Engineered efficient autoencoder architecture with optimized feature extraction for image classification.}
+            \resumeItem{Demonstrated 100\% accurate image classification using threshold pixel-by-pixel differences.}
+          \resumeItemListEnd
+        \resumeProjectHeading
+          {\href{https://github.com/JNewman-cell/WaferMapNeuralNetworkClassification}{\underline{\textbf{Wafer Map Failure Classification}}}
+          $|$ \emph{PyTorch, Numpy, Seaborn}}{}
+          \resumeItemListStart
+            \resumeItem{Architected a 14-layer model classifying wafer types with $>90\%$ accuracy using the WM-811k dataset.}
+            \resumeItem{Devised Augmentation layers for a noise-resistant network, slashing 80\% of random chip failures.}
+            \resumeItem{Analyzed and visualized accuracy and loss throughout iterations to identify over- or under-training.}
+          \resumeItemListEnd
+    \resumeSubHeadingListEnd
+
+%-----------EDUCATION-----------
+\section{\textbf{Education}}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {University of California, Santa Barbara}{\textbf{Santa Barbara, CA}}
+      {Bachelor of Science in Computer Engineering}{September 2020 - June 2024}
+    \resumeSubheading
+      {3.7 GPA, Dean's Honors, Relevant Coursework:}{}
+      {\small{Data Structures, Algorithms, Operating Systems, Applied Machine Learning and AI, Embedded Systems}}{}
+  \resumeSubHeadingListEnd
+
+%
+%-----------PROGRAMMING SKILLS-----------
+\section{\textbf{Technical Skills}}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Programming Languages}{: C++, Java, Python, C, SQL (Postgres), JavaScript, HTML/CSS} \\
+     \textbf{Frameworks}{: React, Node.js, Flask, Bootstrap, Material-UI, Storybook } \\
+     \textbf{Developer Tools}{: Git, Docker, Jira, Google Cloud Platform, Confluence, Perforce, NPM, Firebase, GitHub Actions } \\
+     \textbf{Libraries}{: pandas, NumPy, TensorFlow, PyTorch, Keras, Seaborn, matplotlib } \\
+    %  \resumeItemListStart
+    %         \resumeItem{Demonstrated adeptness in Linux development at AMD through proficient command-line navigation, shell scripting, and utilization of development tools, showcasing a strong grasp of Linux-based environments and workflows.}
+    %         \resumeItem{Demonstrated hands-on proficiency in automated QA, playing a key role in upholding rigorous quality standards for innovative software products.}
+    %         \resumeItem{Applied my creativity, enthusiasm, and passion for technology to swiftly acquire proficiency in new programming languages and tools, making substantial contributions to diverse projects during internships.}
+    %         \resumeItem{Utilized test engineering knowledge to diagnose, analyze, and resolve a variety of software issues.}
+    % \resumeItemListEnd
+    }}
+ \end{itemize}
+
+
+%-------------------------------------------
+\end{document}
