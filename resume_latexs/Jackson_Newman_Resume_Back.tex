@@ -1,25 +1,17 @@
 \documentclass[letterpaper,11pt]{article}
 
-\usepackage{latexsym}
 \usepackage[empty]{fullpage}
 \usepackage{titlesec}
-\usepackage{marvosym}
-\usepackage[usenames,dvipsnames]{color}
-\usepackage{verbatim}
 \usepackage{enumitem}
 \usepackage[hidelinks]{hyperref}
 \usepackage{fancyhdr}
 \usepackage[english]{babel}
-\usepackage{tabularx}
 \usepackage{amsmath}
+\usepackage{setspace}
 \input{glyphtounicode}
-
-\usepackage[sfdefault]{noto-sans}
-
 
 \pagestyle{fancy}
 \fancyhf{}
-\fancyfoot{}
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
 
@@ -29,134 +21,108 @@
 \addtolength{\topmargin}{-.5in}
 \addtolength{\textheight}{1.0in}
 
-\urlstyle{same}
-
-\raggedbottom
 \raggedright
 \setlength{\tabcolsep}{0in}
-
-\titleformat{\section}{
-  \vspace{-4pt}\scshape\raggedright\large
-}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
-
 \pdfgentounicode=1
 
-\newcommand{\resumeItem}[1]{
-  \item\small{
-    {#1 \vspace{-2pt}}
-  }
-}
+% Global line spacing
+\setstretch{0.94}
 
-\newcommand{\resumeSubheading}[4]{
-  \vspace{-2pt}\item
-    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
-      \textbf{#1} & #2 \\
-      \text{#3} & #4 \\
-    \end{tabular*}\vspace{-7pt}
-}
+% Section spacing
+\titleformat{\section}
+  {\large\bfseries}
+  {}{0em}{}[\vspace{2pt}\titlerule]
 
-\newcommand{\resumeSubSubheading}[2]{
-    \item
-    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
-      \textit{\small#1} & \textit{\small #2} \\
-    \end{tabular*}\vspace{-7pt}
-}
+\titlespacing*{\section}{0pt}{8pt}{6pt}
 
-\newcommand{\resumeProjectHeading}[2]{
-    \item
-    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
-      \small#1 & #2 \\
-    \end{tabular*}\vspace{-7pt}
-}
-
-\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
-
-\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
-
-\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
-\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
-\newcommand{\resumeItemListStart}{\begin{itemize}}
-\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
 
 \begin{document}
 
+%====================
+% HEADER
+%====================
 \begin{center}
-    \textbf{\Huge \scshape Jackson Newman} \\ \vspace{1pt}
-    \small Redwood City, CA, 94065 $|$ 650-649-8204 $|$ \href{mailto:jpnewman167@gmail.com}{\underline{jpnewman167@gmail.com}} $|$ 
-    \href{https://www.linkedin.com/in/jacknewman/}{\underline{linkedin.com/in/jacknewman}} $|$
-    \href{https://github.com/JNewman-cell/}{\underline{https://github.com/JNewman-cell/}} $|$
+\textbf{\Huge Jackson Newman} \\[2pt]
+Redwood City, CA 94065 \\ 
+650-649-8204 \\
+\href{mailto:jpnewman167@gmail.com}{jpnewman167@gmail.com} \\
+\href{https://www.linkedin.com/in/jacknewman/}{linkedin.com/in/jacknewman} \\
+\href{https://github.com/JNewman-cell/}{github.com/JNewman-cell}
 \end{center}
 
+%====================
+% WORK EXPERIENCE
+%====================
+\section{Work Experience}
 
-\section{\textbf{Work Experience}}
-  \resumeSubHeadingListStart
-    \resumeSubheading
-    {Visa}{\textbf{Foster City, CA}}
-    {Software Engineer, Java, JPA, Typescript, Python, SQL}{April 2025 - Present}
-    \resumeItemListStart
-        \resumeItem{Designed and implemented the full stack for an audit viewing feature, cutting audit time by 90\%.}
-        \resumeItem{Developed 20+ typescript UI pages for sending and displaying information from DB.}
-        \resumeItem{Built 10+ Java APIs to retrieve, edit, and save organization and user data in the Oracle database.}
-        \resumeItem{Developed 2 Python FastAPI services to fetch and start AI workflows from a PostgreSQL database.}
-        \resumeItem{Developed SQL scripts to manage permissions and workflow configs in Oracle and PostgreSQL databases.}
-        \resumeItem{Created six domain-specific AI agents via prompt engineering, improving workflow accuracy by 30\%.}
-        \resumeItem{Prepared and refined datasets to enable AI workflows and ensure accurate performance evaluation.}
-        \resumeItem{Co-led AI image analysis project automating branding checks, cutting turnaround by 60\%.}        
-        \resumeItem{Redesigned LangGraph architecture to handle batched execution for LLM inference, increasing performance by 80\%.}
-        \resumeItem{LLM workflows and optimized prompt design, boosting system performance/accuracy by 40\%.}
-    \resumeItemListEnd
-    \resumeSubheading
-    {AMD}{\textbf{San Jose, CA}}
-    {Backend Software Engineer Intern, C++, Python}{June 2023 - September 2023}
-    \resumeItemListStart
-        \resumeItem{Accelerated Vivado constraint processing by 50\% through implementing new C++ pattern matching.}
-        \resumeItem{Reduced total application memory usage by 2\% by refactoring code to use Tessil library C++ hash map.}
-        \resumeItem{Developed unit test benchmark for pattern matching performance testing across 30 projects.}
-        \resumeItem{Created and automated Vivado memory and encryption tests, decreasing testing time by 50\%.}
-        \resumeItem{Automated security key upgrades, decreasing time spent on upkeep of 10+ repos by 80\%.}
-    \resumeItemListEnd
-    \resumeSubheading
-    {Shellie.us}{\textbf{San Francisco, CA}}
-    {Software Engineer Intern, React, JavaScript, NoSQL, JSON}{June 2022 - September 2022}
-    \resumeItemListStart
-        \resumeItem{Expanded NoSQL database schema with 6 new fields to efficiently store and manage exhibit contact data.}
-        \resumeItem{Developed and integrated 4 RESTful APIs enabling seamless editing, saving, and deletion of data across 40+ exhibits.}
-        \resumeItem{Engineered 6 reusable React components for web page editing, cutting new feature development time by 20\%.}
-    \resumeItemListEnd
-  \resumeSubHeadingListEnd
+\textbf{Visa} — Foster City, CA  
+\textit{Software Engineer} \hfill April 2025 -- Present
+\begin{itemize}[leftmargin=*, itemsep=2pt, parsep=0pt, topsep=2pt]
+\item Designed and implemented the full stack for an audit viewing feature, reducing audit time by 90\%.
+\item Developed 20+ TypeScript UI pages for displaying and submitting database-backed data.
+\item Built 10+ Java REST APIs to retrieve, edit, and persist organization and user data in Oracle.
+\item Developed two Python FastAPI services to trigger and monitor AI workflows using PostgreSQL.
+\item Wrote SQL scripts to manage permissions and workflow configurations across Oracle and PostgreSQL.
+\item Created six domain-specific AI agents through prompt engineering, improving workflow accuracy by 30\%.
+\item Prepared and refined datasets to enable AI workflows and ensure accurate performance evaluation.
+\item Co-led an AI image analysis project automating branding checks, reducing turnaround time by 60\%.
+\item Redesigned LangGraph architecture for batched LLM inference, increasing system performance by 80\%.
+\item Engineered LLM workflows and optimized prompt design, boosting system performance and accuracy by 40\%.
+\end{itemize}
 
+\textbf{AMD} — San Jose, CA  
+\textit{Backend Software Engineer Intern} \hfill June 2023 -- September 2023
+\begin{itemize}[leftmargin=*, itemsep=2pt, parsep=0pt, topsep=2pt]
+\item Accelerated Vivado constraint processing by 50\% by implementing optimized C++ pattern matching.
+\item Reduced total application memory usage by 2\% by refactoring to use the Tessil C++ hash map library.
+\item Developed unit test benchmarks for pattern matching performance across 30 projects.
+\item Created and automated Vivado memory and encryption tests, decreasing testing time by 50\%.
+\item Automated security key upgrades across 10+ repositories, reducing maintenance time by 80\%.
+\end{itemize}
 
-\section{\textbf{Projects}}
-    \resumeSubHeadingListStart
-        \resumeProjectHeading
-            {\href{https://github.com/JNewman-cell/StockProjects}{\underline{\textbf{Historical Stock Information Visualization Website}}} 
-            $|$ \emph{Flask, Python, Javascript, SQL, CI/CD, GitHub Actions, REST API}}{}
-            \resumeItemListStart
-            \resumeItem{Developed a Flask-based REST API with 6+ endpoints for database retrieval, enabling real-time data.}
-            \resumeItem{Created a custom Trie data structure with 6000+ ticker prefix matching and market cap-based ranking.}
-            \resumeItem{Implemented GitHub Actions testing pipeline for ticker search, validating 100\% of autocomplete accuracy.}
-            \resumeItem{Improved stock info retrieval time by 80\% through optimized API design and local database storage.}
-            \resumeItem{Developed a custom caching system that cut GitHub Actions workflow time by up to 60\%.}
-        \resumeItemListEnd
-    \resumeSubHeadingListEnd
+\textbf{Shellie.us} — San Francisco, CA  
+\textit{Software Engineer Intern} \hfill June 2022 -- September 2022
+\begin{itemize}[leftmargin=*, itemsep=2pt, parsep=0pt, topsep=2pt]
+\item Expanded NoSQL database schema with six new fields to manage exhibit contact data.
+\item Developed and integrated four REST APIs enabling editing, saving, and deletion across 40+ exhibits.
+\item Built six reusable React components for web page editing, reducing new feature development time by 20\%.
+\end{itemize}
 
-\section{\textbf{Education}}
-  \resumeSubHeadingListStart
-    \resumeSubheading
-      {University of California Santa Barbara}{\textbf{Santa Barbara, CA}}
-      {Bachelor of Science in Computer Engineering}{September 2020 - June 2024}
-    \resumeSubheading
-      {3.7 GPA, Dean's Honors, Relevant Coursework:}{}
-      {\small{Data Structures, Algorithms, Operating Systems, Machine Learning, AI, Web Development}}{}
-  \resumeSubHeadingListEnd
+%====================
+% PROJECTS
+%====================
+\section{Projects}
 
-\section{\textbf{Technical Skills}}
- \begin{itemize}[leftmargin=0.15in, label={}]
-    \small{\item{
-     \textbf{Programming Languages}{: C/C++, Java, Python, SQL, JSON} \\
-     \textbf{Frameworks}{: FastAPI, Spring Boot} \\
-     \textbf{Developer Tools}{: Git, Docker, GCP, AWS, GitHub, Firebase, GitHub Actions Jenkins} \\
-    }}
- \end{itemize}
+\textbf{Historical Stock Information Visualization Website}  
+\href{https://github.com/JNewman-cell/StockProjects}{github.com/JNewman-cell/StockProjects}  
+\begin{itemize}[leftmargin=*, itemsep=2pt, parsep=0pt, topsep=2pt]
+\item Developed a Flask-based REST API with six endpoints for real-time stock data retrieval.
+\item Implemented a custom Trie data structure enabling prefix matching across 6,000+ stock tickers.
+\item Built a GitHub Actions testing pipeline validating 100\% of autocomplete search accuracy.
+\item Reduced stock data retrieval latency by 80\% through optimized API design and local database storage.
+\item Developed a custom caching system that reduced CI workflow execution time by up to 60\%.
+\end{itemize}
+
+%====================
+% EDUCATION
+%====================
+\section{Education}
+
+\textbf{University of California, Santa Barbara} — Santa Barbara, CA  
+Bachelor of Science in Computer Engineering \hfill September 2020 -- June 2024  
+
+GPA: 3.7 \\
+Relevant Coursework: Data Structures, Algorithms, Operating Systems, Machine Learning, Artificial Intelligence
+
+%====================
+% TECHNICAL SKILLS
+%====================
+\section{Technical Skills}
+
+\textbf{Programming Languages:} C, C++, Java, Python, SQL \\
+\textbf{Frameworks:} FastAPI, Spring Boot, JPA,  \\
+\textbf{Databases:} PostgreSQL, Oracle, NoSQL \\
+\textbf{Developer Tools:} Git, Docker, Linux, AWS, GCP, GitHub Actions, Jenkins, Firebase, Redis \\
+\textbf{Concepts:} REST APIs, CI/CD, Microservices, Unit Testing, Distributed Systems
 
 \end{document}
