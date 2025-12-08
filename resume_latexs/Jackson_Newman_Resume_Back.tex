@@ -92,8 +92,8 @@
 \href{https://github.com/JNewman-cell/StockProjects}{github.com/JNewman-cell/StockProjects}
 
 \begin{itemize}[leftmargin=*, itemsep=2pt, parsep=0pt, topsep=2pt]
-    \item Built a high-performance Java backend using Spring Boot to expose a RESTful API for stock data retrieval and search. 
-    \item Designed and implemented fuzzy search/autocomplete endpoints using full-text trigram indexing (via PostgreSQL + pg trgm) to support similarity-based ticker and company-name lookups. 
+    \item Built a high-performance Java backend using Spring Boot to expose a 10+ RESTful APIs for stock data retrieval and search. 
+    \item Designed and implemented fuzzy search/autocomplete endpoints using full-text trigram indexing to support similarity-based ticker and company-name lookups. 
     \item Engineered efficient data access with a layered architecture: type-safe queries with Querydsl + DTO projections + strategic database indexing — avoiding N+1 issues and minimizing payload overhead. 
     \item Integrated a multi-tier caching solution combining JPA second-level cache and a distributed cache (Redis via Lettuce) to serve frequent requests with minimal latency. 
     \item Configured and maintained a CI/CD workflow using GitHub Actions to streamline database migrations, environment setup (via .env loader), and automated testing including in‑memory DB testing via H2 + integration tests with TestContainers. 
