@@ -89,13 +89,14 @@
 \section{Projects}
 
 \textbf{Historical Stock Information Visualization Website}  
-\href{https://github.com/JNewman-cell/StockProjects}{github.com/JNewman-cell/StockProjects}  
+\href{https://github.com/JNewman-cell/StockProjects}{github.com/JNewman-cell/StockProjects}
+
 \begin{itemize}[leftmargin=*, itemsep=2pt, parsep=0pt, topsep=2pt]
-\item Developed a Flask-based REST API with six endpoints for real-time stock data retrieval.
-\item Implemented a custom Trie data structure enabling prefix matching across 5,000+ stock tickers.
-\item Built a GitHub Actions testing pipeline validating 100\% of autocomplete search accuracy.
-\item Reduced stock data retrieval latency by 80\% through optimized API design and local database storage.
-\item Developed a custom caching system that reduced CI workflow execution time by up to 60\%.
+    \item Built a high-performance Java backend using Spring Boot to expose a RESTful API for stock data retrieval and search. 
+    \item Designed and implemented fuzzy search/autocomplete endpoints using full-text trigram indexing (via PostgreSQL + pg trgm) to support similarity-based ticker and company-name lookups. 
+    \item Engineered efficient data access with a layered architecture: type-safe queries with Querydsl + DTO projections + strategic database indexing — avoiding N+1 issues and minimizing payload overhead. 
+    \item Integrated a multi-tier caching solution combining JPA second-level cache and a distributed cache (Redis via Lettuce) to serve frequent requests with minimal latency. 
+    \item Configured and maintained a CI/CD workflow using GitHub Actions to streamline database migrations, environment setup (via .env loader), and automated testing including in‑memory DB testing via H2 + integration tests with TestContainers. 
 \end{itemize}
 
 \textbf{Open Source Contributions}
